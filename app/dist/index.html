@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <title>Yawmi</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path class="fill" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10-6.5a.8.8 0 0 0 0-1.4l-10-6.5A.8.8 0 0 0 8 5.5z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path class="fill" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-3-3L5 17l-1 3z"/><path d="M14.5 7.5l3 3"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.9 12.2h9.2L17.5 7"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="M6 14.5l6-6 6 6"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24"><path d="M14.5 6l-6 6 6 6"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8 8 0 1 1 9.8 4a6.4 6.4 0 0 0 10.2 10.2z"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h8.5M17.5 7H20M4 17h2.5M11.5 17H20"/><circle cx="15" cy="7" r="2.5"/><circle cx="9" cy="17" r="2.5"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 11l4.5 4.5 4.5-4.5M5 20h14"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5M7.5 9L12 4.5 16.5 9M5 20h14"/></symbol>
+      <symbol id="i-keys" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+      <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M5 9h11v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V9zM16 10h1.5a2 2 0 0 1 0 4H16M8 3.5v2M12 3.5v2"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/></symbol>
+      <symbol id="i-bars" viewBox="0 0 24 24"><path d="M5 19V11M12 19V5M19 19v-5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15l1.5-2zM10 21h4"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14M5 19c2-4 5-7 9-9"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Yawmi"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" class="mark-track"/><path d="M16 6a10 10 0 1 1-9.5 6.9" class="mark-arc"/><circle cx="16" cy="16" r="2.4" class="mark-dot"/></svg></span><span class="brand-name">Yawmi</span><span class="brand-tag" data-i18n="brand.tag"></span></a>
+    <div class="top-actions">
+      <span class="save-status" id="save-status" role="status"><i></i><span id="save-text"></span></span>
+      <div class="seg" id="lang-switch" role="group" data-i18n-title="tip.lang"></div>
+      <span class="top-sep" aria-hidden="true"></span>
+      <button class="icon-button" id="theme-button" type="button"><svg class="ic"><use href="#i-moon"/></svg></button>
+      <button class="icon-button" id="import-button" type="button" data-i18n-title="tip.import"><svg class="ic"><use href="#i-upload"/></svg></button>
+      <button class="icon-button" id="export-button" type="button" data-i18n-title="tip.export"><svg class="ic"><use href="#i-download"/></svg></button>
+      <button class="icon-button" id="shortcuts-button" type="button" data-i18n-title="tip.shortcuts"><svg class="ic"><use href="#i-keys"/></svg></button>
+      <button class="icon-button" id="settings-button" type="button" data-i18n-title="tip.settings"><svg class="ic"><use href="#i-sliders"/></svg></button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="intro.eyebrow"></p>
+        <h1 data-i18n="intro.title"></h1>
+        <p class="lede" data-i18n="intro.sub"></p>
+      </div>
+      <div class="date-nav">
+        <button class="icon-button flip" id="prev-day" type="button" data-i18n-title="date.prev"><svg class="ic"><use href="#i-chev"/></svg></button>
+        <label class="date-picker"><span id="date-label"></span><input type="date" id="day-date" data-i18n-aria="date.pick"></label>
+        <button class="icon-button flip-x" id="next-day" type="button" data-i18n-title="date.next"><svg class="ic"><use href="#i-chev"/></svg></button>
+        <button class="chip-button" id="today-button" type="button" data-i18n="date.today"></button>
+      </div>
+    </section>
+
+    <section class="bento" aria-label="Summary">
+      <article class="tile"><span class="tile-icon t-focus"><svg class="ic"><use href="#i-target"/></svg></span><div><span class="tile-label" data-i18n="sum.activity"></span><strong id="activity-total"></strong></div></article>
+      <article class="tile"><span class="tile-icon t-break"><svg class="ic"><use href="#i-coffee"/></svg></span><div><span class="tile-label" data-i18n="sum.rest"></span><strong id="break-total"></strong></div></article>
+      <article class="tile"><span class="tile-icon t-move"><svg class="ic"><use href="#i-check"/></svg></span><div><span class="tile-label" data-i18n="sum.done"></span><strong id="done-total"></strong></div></article>
+      <article class="tile tile-progress"><div class="tile-row"><span class="tile-label" data-i18n="sum.progress"></span><strong id="progress-label"></strong></div><div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progress-bar"><div id="progress-fill"></div></div></article>
+    </section>
+
+    <div class="workspace">
+      <section class="plan" aria-labelledby="plan-title">
+        <div class="plan-head">
+          <div><p class="eyebrow" data-i18n="sched.eyebrow"></p><h2 id="plan-title"><span data-i18n="sched.title"></span> <span class="count" id="item-count"></span></h2></div>
+          <button class="primary" id="add-button" type="button"><svg class="ic"><use href="#i-plus"/></svg><span data-i18n="btn.add"></span></button>
+        </div>
+        <div class="plan-bar">
+          <span class="start-line"><span data-i18n="sched.start"></span> <button class="link-button" id="start-time-button" type="button"></button></span>
+          <div class="seg" id="filters" role="group" data-i18n-aria="filter.label">
+            <button type="button" data-filter="all" class="selected" data-i18n="filter.all"></button>
+            <button type="button" data-filter="task" data-i18n="filter.task"></button>
+            <button type="button" data-filter="break" data-i18n="filter.break"></button>
+          </div>
+        </div>
+        <div id="schedule-list" class="schedule-list"></div>
+        <div class="plan-foot"><span id="end-time-label"></span><button class="link-button" id="quick-break" type="button">+ <span data-i18n="btn.addBreak"></span></button></div>
+        <p class="hint" data-i18n="sched.hint"></p>
+      </section>
+
+      <aside class="side">
+        <section class="focus-card" id="focus-card" aria-live="polite">
+          <div class="focus-top"><span class="state-pill" id="timer-state"></span><span class="focus-clock"><svg class="ic"><use href="#i-clock"/></svg></span></div>
+          <p class="focus-caption" id="focus-caption"></p>
+          <h2 id="focus-title"></h2>
+          <span class="focus-category" id="focus-category"></span>
+          <div class="ring">
+            <svg viewBox="0 0 220 220" aria-hidden="true"><circle class="ring-track" cx="110" cy="110" r="98"/><circle id="timer-arc" cx="110" cy="110" r="98"/></svg>
+            <div class="ring-digits"><strong id="timer-display" dir="ltr">00:00</strong><span id="timer-subtitle"></span></div>
+          </div>
+          <button class="timer-start" id="timer-toggle" type="button"></button>
+          <div class="timer-tools">
+            <button id="extend-button" type="button" data-i18n="timer.extend"></button>
+            <button id="finish-button" type="button"><svg class="ic"><use href="#i-check"/></svg><span data-i18n="timer.finish"></span></button>
+          </div>
+        </section>
+        <section class="rest-card">
+          <span class="rest-art" aria-hidden="true"><svg class="ic"><use href="#i-leaf"/></svg></span>
+          <p class="eyebrow" data-i18n="rest.eyebrow"></p>
+          <h3 data-i18n="rest.title"></h3>
+          <p data-i18n="rest.body"></p>
+          <button class="link-button" id="sidebar-break" type="button"><span data-i18n="rest.cta"></span></button>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="page-footer"><span data-i18n="footer.note"></span><span class="local-note"><svg class="ic"><use href="#i-check"/></svg><span data-i18n="footer.local"></span></span></footer>
+  </main>
+
+  <dialog id="activity-dialog"><form id="activity-form">
+    <div class="dialog-heading"><div><p class="eyebrow" data-i18n="form.eyebrow"></p><h2 id="form-title"></h2></div><button type="button" class="icon-button ghost" data-close="activity-dialog" data-i18n-title="btn.close"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <label class="field"><span data-i18n="form.name"></span><input id="activity-name" maxlength="100" data-i18n-ph="form.name.ph" required autocomplete="off"></label>
+    <div class="form-row">
+      <label class="field"><span data-i18n="form.minutes"></span><input id="activity-duration" type="number" min="1" max="720" value="45" required></label>
+      <label class="field"><span data-i18n="form.kind"></span><select id="activity-kind"><option value="focus"></option><option value="personal"></option><option value="movement"></option><option value="break"></option></select></label>
+    </div>
+    <div class="form-options">
+      <label class="option-card" for="activity-open">
+        <input type="checkbox" id="activity-open">
+        <span class="custom-check" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span>
+        <div class="option-text">
+          <span class="option-title" data-i18n="form.open"></span>
+        </div>
+      </label>
+      <label class="option-card" id="with-break-row" for="with-break">
+        <input type="checkbox" id="with-break" checked>
+        <span class="custom-check" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span>
+        <div class="option-text">
+          <span class="option-title" id="with-break-text"></span>
+        </div>
+      </label>
+    </div>
+    <p class="note" data-i18n="form.note"></p>
+    <div class="dialog-actions"><button class="primary" type="submit" id="save-activity"></button><button class="secondary" type="button" data-close="activity-dialog" data-i18n="btn.cancel"></button></div>
+  </form></dialog>
+
+  <dialog id="settings-dialog"><form id="settings-form">
+    <div class="dialog-heading"><h2 data-i18n="set.title"></h2><button class="icon-button ghost" type="button" data-close="settings-dialog" data-i18n-title="btn.close"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="form-row">
+      <label class="field"><span data-i18n="set.start"></span><input type="time" id="day-start" required></label>
+      <label class="field"><span data-i18n="set.break"></span><input type="number" id="default-break" min="1" max="120" required></label>
+    </div>
+    <p class="note" data-i18n="set.note"></p>
+    <div class="dialog-actions"><button type="submit" class="primary" data-i18n="btn.saveSettings"></button><button type="button" class="secondary" data-close="settings-dialog" data-i18n="btn.cancel"></button></div>
+  </form>
+  <div class="settings-extra">
+    <button class="secondary wide" id="test-alarm" type="button"><svg class="ic"><use href="#i-bell"/></svg><span data-i18n="set.testSound"></span></button>
+    <p class="note" data-i18n="set.notif"></p>
+    <button class="danger-link" id="clear-day" type="button" data-i18n="set.clear"></button>
+  </div></dialog>
+
+  <dialog id="confirm-dialog"><div class="dialog-heading"><h2 id="confirm-title"></h2></div><p id="confirm-message" class="confirm-text"></p><div class="dialog-actions"><button class="danger-button" id="confirm-yes" type="button"></button><button class="secondary" data-close="confirm-dialog" type="button" data-i18n="btn.cancel"></button></div></dialog>
+
+  <dialog id="shortcuts-dialog"><div class="dialog-heading"><h2 data-i18n="sc.title"></h2><button class="icon-button ghost" type="button" data-close="shortcuts-dialog" data-i18n-title="btn.close"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <dl class="shortcut-list">
+      <div><dt data-i18n="sc.add"></dt><dd><kbd>Ctrl + N</kbd></dd></div>
+      <div><dt data-i18n="sc.timer"></dt><dd><kbd>Ctrl + Space</kbd></dd></div>
+      <div><dt data-i18n="sc.today"></dt><dd><kbd>Ctrl + T</kbd></dd></div>
+      <div><dt data-i18n="sc.settings"></dt><dd><kbd>Ctrl + ,</kbd></dd></div>
+      <div><dt data-i18n="sc.import"></dt><dd><kbd>Ctrl + O</kbd></dd></div>
+      <div><dt data-i18n="sc.export"></dt><dd><kbd>Ctrl + Shift + S</kbd></dd></div>
+      <div><dt data-i18n="sc.quit"></dt><dd><kbd>Alt + F4</kbd></dd></div>
+    </dl><p class="note" data-i18n="sc.note"></p></dialog>
+
+  <dialog id="alarm-dialog" class="alarm-dialog" aria-labelledby="alarm-title" aria-describedby="alarm-message alarm-hint">
+    <span class="alarm-symbol" aria-hidden="true"><svg class="ic"><use href="#i-bell"/></svg></span>
+    <p class="eyebrow" data-i18n="alarm.eyebrow"></p><h2 id="alarm-title" data-i18n="alarm.title"></h2><p id="alarm-message"></p><p id="alarm-hint" class="note"></p>
+    <button class="primary alarm-stop" id="stop-alarm" type="button" autofocus data-i18n="alarm.stop"></button>
+    <button class="secondary" id="retry-alarm" type="button" hidden data-i18n="alarm.retry"></button>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <audio id="alarm-audio" src="sounds/alarm.wav" preload="auto" loop></audio>
+  <script src="locales.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="plan-time.js" defer></script>
+  <script src="alarm.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

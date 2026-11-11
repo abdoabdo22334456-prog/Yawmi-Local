@@ -1,0 +1,6 @@
+.sites-local/
+node_modules/
+
+release/
+assets/*.tmp
+*.log

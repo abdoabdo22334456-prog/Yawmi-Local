@@ -1,0 +1,85 @@
+{
+  "name": "yawmi-desktop",
+  "productName": "Yawmi",
+  "version": "2.1.5",
+  "description": "يومي — منظم يوم مرن للأنشطة والبريكات",
+  "author": "Yawmi",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check electron/main.cjs && node --check electron/preload.cjs && node --check electron/state.cjs && node --check dist/app.js && node --check dist/desktop.js && node --check dist/alarm.js && node --check electron/sharing.cjs && node --check electron/sharing-events.cjs && node --check electron/couple.cjs && node --check dist/couple.js && node --check dist/plan-time.js && node --check dist/theme.js",
+    "test": "node --test tests/*.test.cjs",
+    "build:dir": "electron-builder --win dir --x64",
+    "build:win": "electron-builder --win portable nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "45.0.0",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "com.yawmi.desktop",
+    "productName": "Yawmi",
+    "copyright": "Yawmi 2026",
+    "asar": true,
+    "electronDist": "node_modules/electron/dist",
+    "npmRebuild": false,
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "electron/**/*.cjs",
+      "dist/**/*",
+      "assets/icon.ico",
+      "assets/icon.png",
+      "package.json"
+    ],
+    "electronFuses": {
+      "runAsNode": false,
+      "enableCookieEncryption": true,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": true,
+      "onlyLoadAppFromAsar": true
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signExecutable": false,
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "portable": {
+      "artifactName": "Yawmi-Portable-${version}-x64.exe"
+    },
+    "nsis": {
+      "artifactName": "Yawmi-Setup-${version}-x64.exe",
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Yawmi — يومي",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": false
+    }
+  },
+  "dependencies": {
+    "firebase-admin": "14.5.0"
+  }
+}
